@@ -1,16 +1,22 @@
 import React, { useState } from 'react'
 import "./style.css"
 
-const LoginBar = ()=>{
+const LoginBar = (props)=>{
     let [userName, setUserName] = useState("")
 
     function handleChange(event){
         setUserName(event.target.value)
     }
     function handeClick(){
-        console.log(userName);
-        localStorage.setItem("name", userName)
+        console.log(userName)
+        if(!userName){
+            alert("Вы не ввели имя.")
+            return
         }
+        localStorage.setItem("name", userName)
+        props.hasUser(true)
+       
+    }
     return <div className="LoginBar">
         <h1>
             Friends Chat
@@ -24,10 +30,8 @@ const LoginBar = ()=>{
                 Войти
              </button>  
         </div>
-    
     </div>
-        
-    
+
 }
 
 

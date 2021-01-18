@@ -1,0 +1,19 @@
+.Users{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color:  #343C4B;
+    height: 100vh;
+    min-width:50px;
+    width: 30vw;
+}
+h1{
+    width: 200px;
+    text-align: center;
+    border-bottom: 1px #9D9D9D solid;
+}
+.userList{
+    padding-left: 50px;
+    width: 100%;
+    text-align: left;
+}
