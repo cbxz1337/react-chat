@@ -1,0 +1,33 @@
+.LoginBar{
+    font-size: 14;
+    background : #343C4B;
+    width: 100%;
+    height: 100vh;
+    display : flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.loginGroup{
+    display : flex;
+    flex-direction: column;
+    align-items: center;
+}
+.loginGroup input{
+    margin-top: 35px;
+    background: #343C4B;
+    border: none;
+    border-bottom: 1px white solid;
+    width: 350px;
+}
+.loginGroup button{
+    border: 1px white solid;
+    background-color:  #343C4B;
+    border-radius: 15px;
+    margin-top: 40px;
+    width: 165px;
+    height: 35px;
+}
+h1{
+    font-size: 24;
+}
