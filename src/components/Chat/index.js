@@ -1,24 +1,41 @@
-import React,{useState} from "react"
+import React,{useEffect, useState} from "react"
+import { socket } from "../../utils/socket"
 import "./style.css"
 
 
 const Chat = ()=>{
 
-    let [msg, setMsg] = useState("")
+    const [msg, setMsg] = useState("")
+    const [chatdata, setChatData] = useState([])
+
+    useEffect(()=>{
+        socket.on('data_chat_back_one', (data)=>{
+            setChatData(data)
+        } ) }, [])
 
     function handleChange(event){
         setMsg(event.target.value)
     }
     const handleClick = ()=>{
-        // if(msg){
-        //     let msgOnServer = JSON.stringify(msg)+":"+localStorage.getItem("name")
-        // }
+       socket.emit("msg_from_front", {
+           name: isMyself,
+           message: msg
+       })
+       setMsg("")
+       console.log(msg);
     }
+    const isMyself = localStorage.getItem("name")
+
+
+    
     return <div className = "Chat">
         <div className = "chatWindow">
-            <div className = "chatItem">
-
-            </div>
+            {chatdata.map(({name, message}, index)=>{
+                return <div className ={(name===isMyself)? "chatItem myMsg":"chatItem"} key = {index}>
+                    <span>{(name===isMyself)?"Вы":name}</span>
+                    <p>{message}</p>
+                </div>
+            })}
         </div>
         <div className = "msgBar">
             <input className = "msgInput" placeholder = "Ваше сообщение ..." value = {msg} onChange = {handleChange}/>

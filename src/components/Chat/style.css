@@ -6,6 +6,35 @@
     justify-content:space-between;
     flex-direction: column;
 }
+.chatWindow{
+    overflow: scroll;
+    justify-content: center;
+
+}
+.chatItem{
+    float: left;
+    color: #343C4B;
+    padding: 10px;
+    margin: 10px 30px;
+    border-color: darkgray;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    border-radius: 15px;
+    text-align: left;
+    width: 80%;
+}
+.myMsg{
+    float: right;
+    text-align: left;
+    background-color: #DBE6FA;
+}
+span{
+    font-size: 12;
+    font-weight: bold;
+    margin: 0 15px;
+}
+.myMsg span{
+    margin: 0 15px;
+}
 .msgBar{
     display: flex;
     align-items: center;
@@ -32,6 +61,7 @@
     width: 60px;
     border-radius: 50px;
 }
+
 
 
     

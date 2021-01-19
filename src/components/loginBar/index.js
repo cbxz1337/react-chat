@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { socket } from '../../utils/socket'
 import "./style.css"
 
 const LoginBar = (props)=>{
@@ -14,8 +15,8 @@ const LoginBar = (props)=>{
             return
         }
         localStorage.setItem("name", userName)
-        props.hasUser(true)
-       
+        socket.emit('new_user_connected', userName)
+        props.hasUser(true)   
     }
     return <div className="LoginBar">
         <h1>
