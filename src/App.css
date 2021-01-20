@@ -8,6 +8,13 @@
   height: 40vmin;
   pointer-events: none;
 }
+@media screen and (max-width:500px){
+  .Users{
+    flex-direction:column;
+    height:50px;
+    width: 100%;
+  }
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

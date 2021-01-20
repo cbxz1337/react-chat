@@ -12,6 +12,7 @@
 
 }
 .chatItem{
+    position: relative;
     float: left;
     color: #343C4B;
     padding: 10px;
@@ -27,13 +28,23 @@
     text-align: left;
     background-color: #DBE6FA;
 }
-span{
+.dateName span{
     font-size: 12;
     font-weight: bold;
     margin: 0 15px;
 }
-.myMsg span{
+.dateName p{
     margin: 0 15px;
+}
+
+.dateName{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.date {
+    position: absolute, right;
+    text-align: right;
 }
 .msgBar{
     display: flex;
@@ -41,22 +52,23 @@ span{
     justify-content: space-between;
     background-color:#FAFAFA;
     width: 100%;
-    height: 115px;
+    height: 70px;
 }
 .msgInput{
     padding-left: 50px;
     text-align: left;
     border: none;
-    font-size: 24px !important;
+    font-size: 14px !important;
     color : #343C4B;
     background-color: #FAFAFA;
     width: 100%;
-    height: 115px;
+    height: 60px;
 }
 .msgInput::placeholder{
     color:#817e7e;
 }
 .msgButton{
+    margin-right: 20px;
     height: 60px;
     width: 60px;
     border-radius: 50px;
