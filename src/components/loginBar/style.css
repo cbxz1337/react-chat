@@ -1,4 +1,5 @@
 .LoginBar{
+    color: #E1EBFF;
     font-size: 14;
     background : #343C4B;
     width: 100%;
@@ -21,6 +22,7 @@
     width: 350px;
 }
 .loginGroup button{
+    color:#E1EBFF;
     border: 1px white solid;
     background-color:  #343C4B;
     border-radius: 15px;

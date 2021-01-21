@@ -7,20 +7,22 @@ import {Fragment} from "react"
 import { socket } from './utils/socket';
 
 function App() {
+  const [hasUser, setHasUser] = useState(false)
   useEffect(()=>{
     if(localStorage.getItem('name')){
+      setHasUser(true)
       socket.emit('new_user_connected', localStorage.getItem('name'))
       }
     else return
   },[])
-  const [hasUser, setHasUser] = useState(false)
   return (
     <div className="App">
-      {localStorage.getItem("name")?
+      {hasUser?
       <Fragment>
           <Users/>
           <Chat/>
-        </Fragment>:
+        </Fragment>
+        :
         <LoginBar hasUser = {setHasUser}/> }
     </div>
   );

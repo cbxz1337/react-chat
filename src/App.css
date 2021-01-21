@@ -2,6 +2,9 @@
   display: flex;
   justify-content: center;
   text-align: center;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
 }
 
 .App-logo {

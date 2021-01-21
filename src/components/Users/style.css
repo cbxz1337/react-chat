@@ -1,4 +1,5 @@
 .Users{
+    overflow-x: auto;
     color: #E1EBFF;
     display: flex;
     align-items: center;
@@ -9,7 +10,7 @@
     width: 30vw;
 }
 h1{
-    width: 200px;
+    width: 60%;
     text-align: center;
     border-bottom: 1px #9D9D9D solid;
 }
