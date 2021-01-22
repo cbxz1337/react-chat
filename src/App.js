@@ -10,8 +10,8 @@ function App() {
   const [hasUser, setHasUser] = useState(false)
   useEffect(()=>{
     if(localStorage.getItem('name')){
-      setHasUser(true)
       socket.emit('new_user_connected', localStorage.getItem('name'))
+      setHasUser(true)
       }
     else return
   },[])

@@ -54,7 +54,7 @@ const Chat = ()=>{
                         <span>{(name===isMyself)?"Вы":name}</span>
                         <p>{finalDate}</p>
                     </div>
-                    <p>{message}</p>
+                    <p className = 'message'>{message}</p>
                 </div>
             })}
         </ScrollToBottom>

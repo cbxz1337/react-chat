@@ -6,11 +6,21 @@
     flex-direction: column;
     background-color:  #343C4B;
     height: 100vh;
-    min-width:50px;
+    min-height:50px;
     width: 30vw;
 }
+.MenuButton{
+    display: none;
+}
+
+.userTopBar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 25px;
+}
+
 h1{
-    width: 60%;
     text-align: center;
     border-bottom: 1px #9D9D9D solid;
 }
@@ -19,3 +29,37 @@ h1{
     width: 100%;
     text-align: left;
 }
+
+@media screen and (max-width:400px){
+    .Users{
+      transition: height 1s;
+      display: block;
+      height:73px;
+      width: 100%;
+      align-items: left;
+
+    }
+    .Active{
+        top: 0;
+        left: 0;
+        position: absolute;
+        z-index: 10;
+        height: 100vh;
+        }
+    .MenuButton{
+        display: block;
+
+    }
+    .userList{
+        display: none;
+    }
+    .Show{
+        display: block;
+    }
+    h1{
+        width: 150px;
+        border-bottom: 0px #9D9D9D solid;;
+        float: left;
+        font-size: 24px;
+    }
+  }
