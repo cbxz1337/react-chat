@@ -39,6 +39,8 @@ def new_user_connected(sid, data):
         print("asd")
     else:
         chatUsers.append({'id': sid, 'name': data})
+        with open('user_data.json', 'w+') as f:
+            json.dump(chatUsers, f, indent=5)
         sio.emit('allData', chatData)
         sio.emit('online_users', chatUsers)
         print("Connected")
@@ -55,11 +57,13 @@ def disconnect(sid):
 
 if __name__ == '__main__':
     try:
+        with open('data.json', 'r') as f:
+            a = json.load(f)
+        chatData = a
         eventlet.wsgi.server(eventlet.listen(('localhost', 2070)), app)
         print("Server started")
     except(Exception):
             print("Server error")
-
 
 
 
