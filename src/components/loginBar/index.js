@@ -6,7 +6,13 @@ const LoginBar = (props)=>{
     let [userName, setUserName] = useState("")
 
     function handleChange(event){
-        setUserName(event.target.value)
+        let name = event.target.value
+        if(name.length<=15){
+            setUserName(name)
+        }
+        else{
+            alert("Слишком длинное имя")
+        }
     }
     function handleKeyDown(event){
         if(event.key === 'Enter'){

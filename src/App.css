@@ -7,8 +7,9 @@
   position: -webkit-sticky;
   top: 0;
 }
-@media screen and (max-width:400px){
+@media screen and (max-width:450px){
   .App{
+    height: 100vh;
     flex-direction: column;
   }
 }

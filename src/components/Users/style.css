@@ -30,9 +30,9 @@ h1{
     text-align: left;
 }
 
-@media screen and (max-width:400px){
+@media screen and (max-width:450px){
     .Users{
-      transition: height 1s;
+      transition: height 0.5s;
       display: block;
       height:73px;
       width: 100%;
