@@ -15,9 +15,19 @@ const Chat = ()=>{
         socket.once('allData', (data)=>{
             setChatData(data)
         })
-         socket.on('data_chat_back_one', (data)=>{
+        socket.on('data_chat_back_one', (data)=>{
             setChatData(oldMessages => ([...oldMessages,data]))
-        } ) }, [])
+        } )
+        socket.on('chat_new_user_msg', (data)=>{
+            console.log(data)
+            setChatData(oldMessages => ([...oldMessages,{message:"Пользователь "+data+" присоединился к чату."}]))
+        } )
+        socket.on('chat_disconnect_user_msg', (data)=>{
+            console.log(data)
+            setChatData(oldMessages => ([...oldMessages,{message:"Пользователь "+data+" вышел из чата."}]))
+        } )
+        
+     }, [])
 
     function handleChange(event){
         setMsg(event.target.value)
@@ -40,13 +50,13 @@ const Chat = ()=>{
     }
     return <div className = "Chat">
         <ScrollToBottom debug = {false} className = "chatWindow">
-            {chatdata.map(({name, message, date}, index)=>{
+            {chatdata.map(({name="", message, date=""}, index)=>{
                 const timeStamp = new Date(date)
                 const finalDate = timeStamp.getMinutes()>=10?(String(timeStamp.getHours())+":"+String(timeStamp.getMinutes())):(String(timeStamp.getHours())+":0"+String(timeStamp.getMinutes()))
                 return <div className ={(name===isMyself)? "chatItem myMsg":"chatItem"} key = {index}>
                     <div className = "dateName">
                         <span>{(name===isMyself)?"Вы":name}</span>
-                        <p>{finalDate}</p>
+                        <p>{date==""?"":finalDate}</p>
                     </div>
                     <p className = 'message'>{message}</p>
                 </div>

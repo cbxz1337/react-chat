@@ -66,11 +66,15 @@
     width: 100%;
     height: 60px;
 }
+.msgInput:focus{
+    box-shadow: 0 0 1px 1px #4d90f0;
+    outline: none;
+}
 .msgInput::placeholder{
     color:#817e7e;
 }
 .msgButton{
-    margin-right: 20px;
+    margin: 0 20px;
     height: 60px;
     width: 60px;
     border-radius: 50px;

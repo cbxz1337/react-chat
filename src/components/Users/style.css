@@ -7,7 +7,7 @@
     background-color:  #343C4B;
     height: 100vh;
     min-height:50px;
-    min-width: 30vw;
+    min-width: 15vw;
 }
 .MenuButton{
     display: none;
@@ -28,6 +28,11 @@ h1{
     padding-left: 50px;
     width: 100%;
     text-align: left;
+}
+@media screen and (max-width:800px){
+    .Users{
+        min-width: 30vw;
+    }
 }
 
 @media screen and (max-width:450px){

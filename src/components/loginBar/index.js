@@ -35,26 +35,24 @@ const LoginBar = (props)=>{
             }
         })
         console.log(userName)
-
         localStorage.setItem("name", userName)
         socket.emit('new_user_connected', userName)
     }
     return <div className="LoginBar">
-        <h1>
-            Friends Chat
-        </h1>
-        <div className = "loginGroup">
-            <input placeholder = "Ваше имя" 
-                onChange ={handleChange}
-                onKeyDown = {handleKeyDown}
-                value = {userName} 
-            />
-            <button onClick = {handleClick}>
-                Войти
-             </button>  
-        </div>
+                <h1>
+                    Friends Chat
+                </h1>
+                <div className = "loginGroup">
+                    <input placeholder = "Ваше имя" 
+                        onChange ={handleChange}
+                        onKeyDown = {handleKeyDown}
+                        value = {userName} 
+                    />
+                    <button onClick = {handleClick}>
+                        Войти
+                    </button>  
+                </div>
     </div>
-
 }
 
 

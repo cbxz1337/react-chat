@@ -9,6 +9,10 @@ import { socket } from './utils/socket';
 function App() {
   const [hasUser, setHasUser] = useState(false)
   useEffect(()=>{
+    socket.on('disconnect', ()=>{
+      socket.disconnect()
+      setHasUser(false)
+    })
     if(localStorage.getItem('name')){
       socket.emit('new_user_connected', localStorage.getItem('name'))
       setHasUser(true)

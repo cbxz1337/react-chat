@@ -20,13 +20,13 @@ def on_message(sid, data):
     sio.emit('data_chat_back_one', data)
     print(data)
     print(chatData)
-    with open('data.json', 'w+') as f:
-        json.dump(chatData, f, indent=5)
+    with open('data.json', 'w+') as file:
+        json.dump(chatData, file, indent=5)
 
 
 def check_user(data):
-    for dict in chatUsers:
-        if list(dict.values()).__contains__(data):
+    for dc in chatUsers:
+        if list(dc.values()).__contains__(data):
             return True
 
 
@@ -35,14 +35,14 @@ def new_user_connected(sid, data):
     if check_user(data):
         sio.emit("check_username", True)
         sio.emit('online_users', chatUsers)
-        print("asd")
     else:
         chatUsers.append({'id': sid, 'name': data})
-        with open('user_data.json', 'w+') as f:
-            json.dump(chatUsers, f, indent=5)
+        with open('user_data.json', 'w+') as file:
+            json.dump(chatUsers, file, indent=5)
         sio.emit('allData', chatData)
         sio.emit('online_users', chatUsers)
-        print("Connected")
+        sio.emit('chat_new_user_msg', data)
+        print(f"User {data} Connected")
 
 
 @sio.on('disconnect')
@@ -50,8 +50,11 @@ def disconnect(sid):
     a = list(filter(lambda user: user['id'] == sid, chatUsers))
     if chatUsers.__contains__(a[0]):
         chatUsers.remove(a[0])
+    name = dict(a[0])['name']
     sio.emit('online_users', chatUsers)
+    sio.emit('chat_disconnect_user_msg', name)
     print(sid)
+    print(name)
 
 
 if __name__ == '__main__':
@@ -60,10 +63,10 @@ if __name__ == '__main__':
             eventlet.wsgi.server(eventlet.listen(('localhost', 2070)), app)
             print("Server started")
         else:
-            with open('data.json', 'w+') as f:
+            with open('data.json', 'r') as f:
                 a = json.load(f)
             chatData = a
             eventlet.wsgi.server(eventlet.listen(('localhost', 2070)), app)
             print("Server started")
-    except Exception:
-        print("Server error")
+    except BaseException:
+        print(Exception)
