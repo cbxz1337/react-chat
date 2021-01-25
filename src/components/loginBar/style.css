@@ -15,6 +15,7 @@
     align-items: center;
 }
 .loginGroup input{
+    color: #E1EBFF;
     margin-top: 35px;
     background: #343C4B;
     border: none;

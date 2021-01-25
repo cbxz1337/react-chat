@@ -7,7 +7,7 @@
     background-color:  #343C4B;
     height: 100vh;
     min-height:50px;
-    width: 30vw;
+    min-width: 30vw;
 }
 .MenuButton{
     display: none;
@@ -21,7 +21,7 @@
 }
 
 h1{
-    text-align: center;
+    padding-left: 10px;
     border-bottom: 1px #9D9D9D solid;
 }
 .userList{
